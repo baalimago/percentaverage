@@ -9,7 +9,7 @@ go install github.com/baalimago/percentaverage@latest
 ## Usage
 
 ```bash
-echo "12.21% 22,35% 22% 102% -0.2%" | percentaverage 
+echo "20,3% 19.9% -0.2%" | percentaverage && echo
 ```
 
 ```bash
