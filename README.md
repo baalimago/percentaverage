@@ -1,6 +1,8 @@
 # percentaverage
 A tool which finds all precentages in a file and averages them. Matches `x.y%`, `x,y%`, `-x.y%`.
 
+Test coverage: 0.0%
+
 ### Installation
 ```bash
 go install github.com/baalimago/percentaverage@latest
