@@ -31,7 +31,7 @@ func NewRegexpAverager(r io.Reader) averager {
 // version of *regexpAverager
 func (a *regexpAverager) postConstructInit(r io.Reader) (averager, error) {
 	if r == nil {
-		return nil, NilReaderError
+		return nil, ErrNilReader
 	}
 	b := atomic.Bool{}
 	b.Store(true)
@@ -47,7 +47,7 @@ func (a *regexpAverager) postConstructInit(r io.Reader) (averager, error) {
 // Returns the precentage as a float on success, returns error when failing according to the averager interface
 func (a *regexpAverager) Average() (float64, error) {
 	if a == nil || a.isInited == nil || !a.isInited.Load() {
-		return 0, UninitiatedError
+		return 0, ErrUninitiated
 	}
 	b, err := io.ReadAll(a)
 	if err != nil {
@@ -55,12 +55,12 @@ func (a *regexpAverager) Average() (float64, error) {
 	}
 
 	if len(b) == 0 {
-		return 0, EmptyReaderError
+		return 0, ErrEmptyReader
 	}
 
 	percByteMatches := r.FindAll(b, -1)
 	if len(percByteMatches) == 0 {
-		return 0, NoPercentagesError
+		return 0, ErrNoPercentages
 	}
 	var sum float64
 	for _, percByteSlice := range percByteMatches {

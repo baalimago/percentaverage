@@ -17,16 +17,16 @@ type averager interface {
 	//
 	// Return the average percent, as float.
 	//
-	// Return NilReaderError if the reader in the implementation is nil.
-	// Return UninitiatedError if the averager hasn't called init before Average.
-	// Return EmptyReaderError if the reader contains no bytes.
-	// Return NoPercentagesError if the reader contains no percentages.
+	// Return ErrNilReader if the reader in the implementation is nil.
+	// Return ErrUninitiated if the averager hasn't called init before Average.
+	// Return ErrEmptyReader if the reader contains no bytes.
+	// Return ErrNoPercentages if the reader contains no percentages.
 	Average() (float64, error)
 }
 
 var (
-	NilReaderError     = errors.New("reader is nil")
-	UninitiatedError   = errors.New("averager is uninitiated")
-	EmptyReaderError   = errors.New("reader contains no bytes")
-	NoPercentagesError = errors.New("there are no percentages to average")
+	ErrNilReader     = errors.New("reader is nil")
+	ErrUninitiated   = errors.New("averager is uninitiated")
+	ErrEmptyReader   = errors.New("reader contains no bytes")
+	ErrNoPercentages = errors.New("there are no percentages to average")
 )

@@ -3,14 +3,8 @@ package averager
 import (
 	"bytes"
 	"errors"
-	"os"
 	"testing"
 )
-
-type inpVal struct {
-	f           *os.File
-	fileContent string
-}
 
 type retVal struct {
 	perc float64
@@ -23,15 +17,15 @@ func interfaceTest(t *testing.T, target averager) {
 	t.Helper()
 	t.Run("it should NilWriterError on nil Writer", func(t *testing.T) {
 		_, got := target.postConstructInit(nil)
-		if !errors.Is(got, NilReaderError) {
+		if !errors.Is(got, ErrNilReader) {
 			t.Fatalf("expected NilWriterError, got: %v", got)
 		}
 	})
 
 	t.Run("it should error on non-initiated averager", func(t *testing.T) {
 		_, got := target.Average()
-		if !errors.Is(got, UninitiatedError) {
-			t.Fatalf("expected UninitiatedError, got: %v", got)
+		if !errors.Is(got, ErrUninitiated) {
+			t.Fatalf("expected ErrUninitiated, got: %v", got)
 		}
 	})
 
@@ -46,7 +40,7 @@ func interfaceTest(t *testing.T, target averager) {
 				given: "",
 				want: retVal{
 					perc: 0,
-					err:  EmptyReaderError,
+					err:  ErrEmptyReader,
 				},
 			},
 			{
@@ -54,7 +48,7 @@ func interfaceTest(t *testing.T, target averager) {
 				given: "well, theres no percentages here at least",
 				want: retVal{
 					perc: 0,
-					err:  NoPercentagesError,
+					err:  ErrNoPercentages,
 				},
 			},
 			{
