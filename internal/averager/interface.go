@@ -27,6 +27,6 @@ type averager interface {
 var (
 	NilReaderError     = errors.New("reader is nil")
 	UninitiatedError   = errors.New("averager is uninitiated")
-	EmptyReaderError   = errors.New("error contains no bytes")
+	EmptyReaderError   = errors.New("reader contains no bytes")
 	NoPercentagesError = errors.New("there are no percentages to average")
 )
