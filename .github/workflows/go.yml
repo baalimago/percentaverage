@@ -8,4 +8,4 @@ on:
 
 jobs:
   call-workflow:
-    uses: baalimago/repeater/.github/workflow/go.yml@main
+    uses: baalimago/repeater/.github/workflows/go.yml@main
