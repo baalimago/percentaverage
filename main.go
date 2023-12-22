@@ -11,6 +11,7 @@ import (
 var r = flag.Bool("r", false, "Set to true if you wish only the percentage as output, without '%'.")
 
 func main() {
+	flag.Parse()
 	regexpAverager := averager.NewRegexpAverager(os.Stdin)
 	average, err := regexpAverager.Average()
 	if err != nil {
