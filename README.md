@@ -13,7 +13,8 @@ echo "20,3% 19.9% -0.2%" | percentaverage && echo
 ```
 
 ```bash
-go test ./... -cover | percentaverage
+
+go test ./... -cover | percentaverage -r `# This will output the percentage wihout a '%' sign`
 ```
 
 ## Roadmap
