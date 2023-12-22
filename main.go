@@ -17,8 +17,8 @@ func main() {
 		panic(fmt.Errorf("failed to average: %v", err))
 	}
 	if *r {
-		fmt.Printf("%v%%", average)
+		fmt.Printf("%v%", average)
 	} else {
-		fmt.Printf("%v", average)
+		fmt.Printf("%v%", average)
 	}
 }
