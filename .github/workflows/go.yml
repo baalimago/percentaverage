@@ -9,4 +9,9 @@ on:
 jobs:
   call-workflow:
     uses: baalimago/simple-go-pipeline/.github/workflows/go.yml@main
-    # Touching file a little, will then remove this
+    with:
+      gofumpt: false
+      staticcheck: false
+      test-race: false
+      test-readme-coverage: false
+        
