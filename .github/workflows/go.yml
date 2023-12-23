@@ -8,5 +8,5 @@ on:
 
 jobs:
   call-workflow:
-    uses: baalimago/simple-go-pipeline/.github/workflows/go.yml@v0.1.0
+    uses: baalimago/simple-go-pipeline/.github/workflows/go.yml@main
     # Touching file a little, will then remove this
