@@ -9,9 +9,4 @@ on:
 jobs:
   call-workflow:
     uses: baalimago/simple-go-pipeline/.github/workflows/go.yml@main
-    with:
-      gofumpt: false
-      staticcheck: false
-      test-race: false
-      test-readme-coverage: false
         
