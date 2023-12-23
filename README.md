@@ -27,5 +27,3 @@ go test ./... -cover | percentaverage -r `# This will output the percentage wiho
 - [ ] Paralellized parsing
 - [ ] Glob parsing using `-g` flag
 - [ ] Glob parsing using multi-arguments
-
-Pipeline poke
