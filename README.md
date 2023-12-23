@@ -1,7 +1,7 @@
 # percentaverage
 A tool which finds all precentages in a file and averages them. Matches `x.y%`, `x,y%`, `-x.y%`.
 
-Test coverage: 0.0%
+Test coverage: 77.4% 😌👏
 
 ### Installation
 ```bash
