@@ -9,6 +9,7 @@ import (
 )
 
 var r = flag.Bool("r", false, "Set to true if you wish only the percentage as output, without '%'.")
+var round = flag.Bool("round", false, "Set to true if you wish to round the output to the nearest integer.")
 
 func main() {
 	flag.Parse()
@@ -17,9 +18,14 @@ func main() {
 	if err != nil {
 		panic(fmt.Errorf("failed to average: %v", err))
 	}
+
+	averageStr := fmt.Sprintf("%v", average)
+	if *round {
+		averageStr = fmt.Sprintf("%.3f", average)
+	}
 	if *r {
-		fmt.Printf("%v", average)
+		fmt.Printf("%v", averageStr)
 	} else {
-		fmt.Printf("%.3f%%", average)
+		fmt.Printf("%v%%", averageStr)
 	}
 }
