@@ -20,6 +20,6 @@ func main() {
 	if *r {
 		fmt.Printf("%v", average)
 	} else {
-		fmt.Printf("%v%%", average)
+		fmt.Printf("%.3f%%", average)
 	}
 }
